@@ -10,8 +10,10 @@ int main(){
     for(ttemp=1;ttemp<=ntest;ttemp++){
         scanf("%d", &num);
         for(ntemp=0;ntemp<num;ntemp++){
-            fscanf("%d", &seq[ntemp]);
+            scanf("%d", &seq[ntemp]);
         }
+        msum = seq[0];
+        mstart = mend = 1;
         for(ntemp=0;ntemp<num;ntemp++){
             tsum = 0;
             for(ntemp1=ntemp;ntemp1<num;ntemp1++){
@@ -20,6 +22,9 @@ int main(){
                     mstart = ntemp + 1;
                     mend = ntemp1 + 1;
                     msum = tsum;
+                }
+		        if(tsum<0){
+                    break;
                 }
             }
         }
