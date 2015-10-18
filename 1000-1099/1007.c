@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int main(){
+    int t;
     double sm, sh, mh, tsm, tsh, tmh, ft1, ft2, ft3, et1, et2, et3;
     double degree, fsm, esm, fsh, esh, fmh, emh, max, min, sum;
     sm = 10./59.;
@@ -21,15 +22,15 @@ int main(){
         esm = tsm - fsm;
         esh = tsh - fsh;
         emh = tmh - fmh;
-        for(ft1=fmh,et1=emh;et1<=43200;ft1+=tmh,et1+=tmh){
-            for(ft2=fsh,et2=esh;esh<=43200;ft2+=tsh,et2+=tsh){
+        for(ft1=fmh,et1=emh;ft1<43200;ft1+=tmh,et1+=tmh){
+            for(ft2=fsh,et2=esh;ft2<43200;t++,ft2+=tsh,et2+=tsh){
                 if(ft2>et1){
                     break;
                 }
                 if(et2<ft1){
                     continue;
                 }
-                for(ft3=fsm,et3=esm;esm<=43200;ft3+=tsm,et3+=tsm){
+                for(ft3=fsm,et3=esm;ft3<43200;ft3+=tsm,et3+=tsm){
                     if(ft3>et1 || ft3>et2){
                         break;
                     }
